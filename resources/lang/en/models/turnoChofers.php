@@ -1,0 +1,37 @@
+<?php
+
+return array (
+  'singular' => 'Turno Chofer',
+  'plural' => 'Turno Chofer',
+  'fields' =>
+  array (
+    'id' => 'Id',
+    'programacion_id' => 'Programacion',
+    'turno' => 'Turno',
+    'chofer_id' => 'Chofer',
+    'viaje' => 'Viaje',
+    'Aprobado_id' => 'Aprobado',
+    'concentradora' => 'Concentradora',
+    'rechazado' => 'Rechazado',
+    'motivo' => 'Motivo',
+    'Gtesh001_id' => 'Gtesh001',
+    'Gtesh001' => 'Gtesh001',
+    'Gtesh002' => 'Gtesh002',
+    'Gtesh003' => 'Gtesh003',
+    'Gtesh004' => 'Gtesh004',
+    'Gtesh005' => 'Gtesh005',
+    'Gtesh006' => 'Gtesh006',
+    'Gtesh007' => 'Gtesh007',
+    'Gtesh008' => 'Gtesh008',
+    'Gtesh010' => 'Gtesh010',
+    'Gtesh012' => 'Gtesh012',
+    'Gtesh013' => 'Gtesh013',
+    'Gtesh016' => 'Gtesh016',
+    'Gtesh018' => 'Gtesh018',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'created_by' => 'Created By',
+    'updated_by' => 'Updated By',
+    'deleted_by' => 'Deleted By',
+  ),
+);
