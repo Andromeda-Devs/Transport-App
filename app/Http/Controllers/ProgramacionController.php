@@ -37,10 +37,10 @@ class ProgramacionController extends AppBaseController
      */
     public function index(Request $request)
     {   
+        //que codigo mas basura el bcrro que escribio esto 
         $programacions = $this->programacionRepository->all();
-
         return view('programacions.index')
-            ->with('programacions', $programacions);
+            ->with('programacions', $request->code ? $programacions->whereIn('id',[$request->code]) : $programacions);
     }
 
     /**

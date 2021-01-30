@@ -15,8 +15,8 @@
                             @lang('models/programacions.plural')
                             @can('preparar programacion')
                                 <div class="pull-right d-flex">
-                                    <form class="input-group" action="{{route('programacions.edit',['id' => 1],false)}}">
-                                        <input class="form-control" type="search" name="search-input">
+                                    <form class="input-group" action="programacions">
+                                        <input class="form-control" type="search" name="code">
                                         <div class="input-group-append">
                                             <button class="input-group-text" type="submit">
                                                 <i class="fa fa-search"></i>
