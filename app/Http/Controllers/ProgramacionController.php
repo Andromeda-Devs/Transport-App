@@ -36,7 +36,7 @@ class ProgramacionController extends AppBaseController
      * @return Response
      */
     public function index(Request $request)
-    {
+    {   
         $programacions = $this->programacionRepository->all();
 
         return view('programacions.index')
@@ -50,20 +50,21 @@ class ProgramacionController extends AppBaseController
      */
     public function create()
     {
-        $requerimientos = \App\Models\Requerimiento::where('programado', 0)
-            ->get()
-            ->map(function($req){
-                // formating name client
-                $name = trim($req->cliente->nombre);
-                // formating ducto's name
-                $ducto = trim($req->ducto_rel->descripcion);
-                // date of requirement
-                $date = $req->created_at->format('d-m-Y');
-                // code of requirement
-                $code = $req->id;
-                return "N° $code, $name, $ducto, $date";
-            })
-            ->all();
+        $requerimientos = [];
+        // formato de requerimiento
+        // CLIENTE - DUCTO - FECHA
+        $data = \App\Models\Requerimiento::all();
+        foreach ( $data->where("programado",0) as $req) {
+            // formating name client
+            $id = trim($req->id);
+            $name = trim($req->cliente->nombre);
+            // formating ducto's name
+            $ducto = trim($req->ducto_rel->descripcion);
+            // date of requirement
+            $date = $req->created_at->format('d-m-Y');
+            // storing for pluck
+            $requerimientos[$req->id] = "# $id,$name, $ducto, $date";
+        }
 
         return view('programacions.create')
             ->with([
@@ -72,6 +73,7 @@ class ProgramacionController extends AppBaseController
     }
 
     /**
+     * M
      * Store a newly created Programacion in storage.
      *
      * @param CreateProgramacionRequest $request

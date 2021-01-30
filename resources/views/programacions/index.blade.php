@@ -14,13 +14,23 @@
                             <i class="fa fa-align-justify"></i>
                             @lang('models/programacions.plural')
                             @can('preparar programacion')
-                                <a 
-                                    class="pull-right btn btn-primary" 
-                                    role="button" 
-                                    href="{{ route('programacions.create') }}"
-                                >
-                                    <i class="fa fa-plus"></i> Añadir
-                                </a>
+                                <div class="pull-right d-flex">
+                                    <form class="input-group" action="{{route('programacions.edit',['id' => 1],false)}}">
+                                        <input class="form-control" type="search" name="search-input">
+                                        <div class="input-group-append">
+                                            <button class="input-group-text" type="submit">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <a 
+                                        class="btn btn-primary ml-2" 
+                                        role="button" 
+                                        href="{{ route('programacions.create') }}"
+                                    >
+                                        <i class="fa fa-plus"></i> Añadir
+                                    </a>
+                                </div>
                             @endcan
                          </div>
                          <div class="card-body">
