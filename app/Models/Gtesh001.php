@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Gtesh001
@@ -129,13 +130,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Gtesh001 extends Model
 {
     use SoftDeletes;
+    use LogsActivity;
 
     public $table = 'gtesh001s';
     
 
     protected $dates = ['deleted_at'];
 
-
+    protected static $logName = 'gtesh001';
+    protected static $logOnlyDirty = true;
+    protected static $logFillable = true;
 
     public $fillable = [
         'programacion_id',

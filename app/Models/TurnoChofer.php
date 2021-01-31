@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class TurnoChofer
@@ -35,12 +36,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TurnoChofer extends Model
 {
     use SoftDeletes;
+    use LogsActivity;
 
     public $table = 'turno_chofers';
     
 
     protected $dates = ['deleted_at'];
 
+    protected static $logName = 'turno_chofer';
+    protected static $logOnlyDirty = true;
+    protected static $logFillable = true;
 
 
     public $fillable = [

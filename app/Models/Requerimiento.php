@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
  * Class Requerimiento
@@ -20,13 +21,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Requerimiento extends Model
 {
     use SoftDeletes;
+    use LogsActivity;
 
     public $table = 'requerimientos';
 
 
     protected $dates = ['deleted_at'];
 
-
+    protected static $logName = 'requerimiento';
+    protected static $logOnlyDirty = true;
+    protected static $logFillable = true;
 
     public $fillable = [
         'fecha_programada',
