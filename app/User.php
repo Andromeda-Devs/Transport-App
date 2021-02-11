@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Activitylog\Traits\CausesActivity;
 use Spatie\Permission\Traits\HasRoles;
 use Wildside\Userstamps\Userstamps;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use Userstamps;
     use HasRoles;
     use CausesActivity;
+    use HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
